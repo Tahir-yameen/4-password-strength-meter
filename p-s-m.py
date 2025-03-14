@@ -1,5 +1,5 @@
 import streamlit as st
-from zxcvbn import zxcvbn as zxcvbn_function
+from zxcvbn import zxcvbn
 
 st.title("Password Strength Meter")
 st.write("""
@@ -11,7 +11,7 @@ st.write("""
 password = st.text_input("Enter your password", type="password")
 
 if password:
-    result = zxcvbn_function(password)  # Corrected function call
+    result = zxcvbn(password)  # Corrected function call
     score = result['score']
     feedback = result['feedback'].get('suggestions', [])  # Avoid KeyError if suggestions are missing
 
